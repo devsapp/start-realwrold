@@ -17,7 +17,7 @@ HomePage: https://github.com/devsapp/real-wrold-app
 Tags: #标签详情
   - 生产环境
   - extend
-Category: 其他 # 基础云服务/Web框架/Web应用/人工智能/音视频处理/图文处理/监控告警/大数据/IoT/新手入门/其他
+Category: 新手入门 # 基础云服务/Web框架/Web应用/人工智能/音视频处理/图文处理/监控告警/大数据/IoT/新手入门/其他
 Service: # 使用的服务
   函数计算: # 函数计算/容器服务/镜像服务/消息队列/工作流/CDN/对象存储/表格存储/MNS/日志服务/API网关/数据库/解析服务/云应用/其他
     # Runtime: Python 3.6 如果服务是函数，还需要增加Runtime
