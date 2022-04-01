@@ -1,18 +1,18 @@
 extend: ./s-base.yaml
 
 vars:
-  serviceName: realworld-app-pre
+  serviceName: realworld-app-pro
 
 services:
   frontend:
-    actions:
-      pre-deploy:
-        # - run: npm run build  # 可以先执行下build操作
-        #   path: ./frontend
-        - plugin: website-fc
-          args:
-            index: demo.html
     props:
+      actions:
+        pre-deploy:
+          # - run: npm run build  # 可以先执行下build操作
+          #   path: ./frontend
+          - plugin: website-fc
+            args:
+              index: demo.html
       service:
         name: ${vars.serviceName}
       function:
