@@ -1,0 +1,40 @@
+edition: 1.0.0          #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
+name: functionApp       #  项目名称
+access: default  #  秘钥别名
+
+vars:
+  baseService: #  服务名称
+    component: fc  # 组件名称
+    props: #  组件的属性值
+      region: cn-hangzhou
+      service:
+        name: realworld-app
+        description: 欢迎使用ServerlessDevs
+      function:
+        name: serverless_demo_nodejs12
+        description: 这是一个Nodejs12的测试案例
+        handler: index.handler
+        memorySize: 128
+        runtime: nodejs12
+        timeout: 60
+        environmentVariables:         # 环境变量
+          DB_CONNECTION: ${env(DB_CONNECTION)}
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*
+              methods:
+                - GET
+                - POST
+  
+services:
+  frontend: ${vars.baseService}
+  backend: ${vars.baseService}
