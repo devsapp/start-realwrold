@@ -3,7 +3,7 @@
 - [最佳实践](#最佳实践)
   - [环境划分](#环境划分)
   - [隐私变量](#隐私变量)
-  - [ignore](#ignore)
+  - [fcignore](#fcignore)
 - [部署]
   - [版本&灰度](#版本&灰度)
 - [Tips]
@@ -124,30 +124,12 @@ jobs:
 
 
 
-### ignore- [部署]
-  - [灰度]
+### fcignore
 > 声明：serverless-Devs `ignore` 遵循`.npmignore`规范。基于[minimatch](https://www.npmjs.com/package/minimatch) 库构建。
-
-#### .fcignore
+> 
 `.fcignore` 作用于当前`codeUri`目录中，用户在上传代码到函数计算平台时候，可以忽略某些文件。典型场景：比如我的`node_module`依赖上传到[layer](https://help.aliyun.com/document_detail/193057.html)。这时候每次执行`s deploy`时候就需要忽略上传`node_module`。
 详细使用说明参考[文档](https://www.serverless-devs.com/fc/tips#%E5%85%B3%E4%BA%8Efcignore%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)。
 
-#### ignore探讨
-1. 更多的ignore
-.nasignore, .buildignore, .ossignore, layerignore
-
-2. 可能的方案（待讨论）
-底层采用[globby](https://www.npmjs.com/package/globby)
-```
-codeUri:
-  exclude:
-    - .gitignore
-    - .git/**
-    - node_modules/**
-    - '!node_modules/node-fetch/**'
-    - .serverless
-    - .env
-```
 
 ## 部署
 
@@ -200,4 +182,4 @@ customDomains:
 ## Tips
 
 ### 导出函数配置
-通过`sync` 命令是将线上的资源(包括配置以及代码)同步到本地。
+通过`s sync` 命令是将线上的资源(包括配置以及代码)同步到本地。
